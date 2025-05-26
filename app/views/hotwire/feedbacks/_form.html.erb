@@ -1,45 +1,45 @@
 <%= turbo_frame_tag "feedback_form" do %>
-  <div class="glass-form mr-6">
-    <h2 class="text-lg font-bold text-white mb-4">
+  <div class="glass-form mr-0 xl:mr-6">
+    <h2 class="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">
       Share Your Feedback
     </h2>
     
     <%= form_with model: feedback,
                   url: hotwire_feedbacks_path(format: :turbo_stream),
-                  html: { class: "space-y-4" } do |f| %>
+                  html: { class: "space-y-3 sm:space-y-4" } do |f| %>
 
       <div class="space-y-1">
-        <%= f.label :name, class: "block text-xs font-medium text-white/90" do %>
+        <%= f.label :name, class: "block text-xs sm:text-sm font-medium text-white/90" do %>
           Name <span class="text-red-300">*</span>
         <% end %>
         <%= f.text_field :name,
               placeholder: "Enter your full name",
-              class: "glass-input p-2 text-sm" %>
+              class: "glass-input p-2 sm:p-3 text-sm sm:text-base" %>
         <% if feedback.errors[:name].any? %>
           <p class="glass-error"><%= feedback.errors[:name].first %></p>
         <% end %>
       </div>
 
       <div class="space-y-1">
-        <%= f.label :email, class: "block text-xs font-medium text-white/90" do %>
+        <%= f.label :email, class: "block text-xs sm:text-sm font-medium text-white/90" do %>
           Email <span class="text-red-300">*</span>
-          <span class="ml-2 text-white/60 text-xs">(for follow-up only)</span>
+          <span class="block sm:inline sm:ml-2 text-white/60 text-xs">(for follow-up only)</span>
         <% end %>
         <%= f.email_field :email,
               placeholder: "your.email@example.com",
-              class: "glass-input p-2 text-sm" %>
+              class: "glass-input p-2 sm:p-3 text-sm sm:text-base" %>
         <% if feedback.errors[:email].any? %>
           <p class="glass-error"><%= feedback.errors[:email].first %></p>
         <% end %>
       </div>
 
       <div class="space-y-1">
-        <%= f.label :message, class: "block text-xs font-medium text-white/90" do %>
+        <%= f.label :message, class: "block text-xs sm:text-sm font-medium text-white/90" do %>
           Message <span class="text-red-300">*</span>
         <% end %>
-        <%= f.text_area :message, rows: 5,
+        <%= f.text_area :message, rows: 4,
               placeholder: "Share your thoughts...",
-              class: "glass-input p-2 text-sm resize-none" %>
+              class: "glass-input p-2 sm:p-3 text-sm sm:text-base resize-none min-h-[100px] sm:min-h-[120px]" %>
         <% if feedback.errors[:message].any? %>
           <p class="glass-error"><%= feedback.errors[:message].first %></p>
         <% end %>
@@ -47,7 +47,7 @@
 
       <div class="pt-2">
         <%= f.submit "Send Feedback",
-              class: "glass-button w-full text-sm py-2",
+              class: "glass-button w-full text-sm sm:text-base py-2 sm:py-3",
               data: { disable_with: "Sending…" } %>
       </div>
     <% end %>

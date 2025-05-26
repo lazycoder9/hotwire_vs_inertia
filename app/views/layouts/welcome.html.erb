@@ -14,15 +14,15 @@
   </head>
   <body class="text-white min-h-screen welcome-body">
     <!-- Floating navigation for welcome page -->
-    <nav class="fixed top-6 right-6 z-50 glass-floating-nav">
-      <div class="flex space-x-3">
-        <%= link_to "Hotwire", hotwire_feedbacks_path, class: "glass-nav-link" %>
-        <%= link_to "Inertia", inertia_feedbacks_path, class: "glass-nav-link", data: { turbo: false } %>
+    <nav class="fixed top-4 sm:top-6 right-4 sm:right-6 z-50 glass-floating-nav">
+      <div class="flex flex-col sm:flex-row space-y-2 sm:space-y-0 sm:space-x-3">
+        <%= link_to "Hotwire", hotwire_feedbacks_path, class: "glass-nav-link text-center" %>
+        <%= link_to "Inertia", inertia_feedbacks_path, class: "glass-nav-link text-center", data: { turbo: false } %>
       </div>
     </nav>
 
     <!-- Main Content Area -->
-    <main class="min-h-screen py-12 px-6">
+    <main class="min-h-screen py-8 sm:py-12 px-4 sm:px-6">
       <%= yield %>
     </main>
   </body>

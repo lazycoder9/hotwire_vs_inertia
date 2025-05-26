@@ -1,70 +1,70 @@
-<div class="max-w-7xl mx-auto space-y-16 px-4">
+<div class="max-w-7xl mx-auto space-y-8 sm:space-y-12 lg:space-y-16 px-4">
   <!-- Hero Section -->
-  <div class="text-center glass-card p-12 lg:p-16 mt-8">
-    <h1 class="text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+  <div class="text-center glass-card p-6 sm:p-8 lg:p-12 xl:p-16 mt-4 sm:mt-8">
+    <h1 class="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight">
       Technology Comparison Lab
     </h1>
-    <p class="text-white/80 text-lg mb-10 max-w-4xl mx-auto leading-relaxed">
+    <p class="text-white/80 text-sm sm:text-base lg:text-lg mb-6 sm:mb-8 lg:mb-10 max-w-4xl mx-auto leading-relaxed">
       Explore and compare modern web technologies through practical implementations. 
       Build the same applications using different approaches to understand their strengths, trade-offs, and unique characteristics.
     </p>
-    <div class="flex flex-col sm:flex-row justify-center gap-4 sm:gap-6">
-      <%= link_to "Start Exploring", "#experiments", class: "glass-button text-base px-8 py-4" %>
-      <%= link_to "View on GitHub", "#", class: "glass-link text-base px-8 py-4" %>
+    <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 lg:gap-6">
+      <%= link_to "Start Exploring", "#experiments", class: "glass-button text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4" %>
+      <%= link_to "View on GitHub", "#", class: "glass-link text-sm sm:text-base px-6 sm:px-8 py-3 sm:py-4" %>
     </div>
   </div>
 
   <!-- Technology Stack Overview -->
-  <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
     <!-- Hotwire -->
-    <div class="glass-card p-8">
-      <div class="flex items-center mb-6">
-        <div class="w-12 h-12 rounded-xl bg-orange-500/20 flex items-center justify-center border border-orange-500/30 mr-4">
-          <span class="text-lg text-orange-300">◐</span>
+    <div class="glass-card p-4 sm:p-6 lg:p-8">
+      <div class="flex items-center mb-4 sm:mb-6">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-orange-500/20 flex items-center justify-center border border-orange-500/30 mr-3 sm:mr-4 flex-shrink-0">
+          <span class="text-base sm:text-lg text-orange-300">◐</span>
         </div>
-        <div>
-          <h3 class="text-xl font-semibold text-white">Hotwire</h3>
-          <p class="text-white/60 text-sm">Server-driven approach</p>
+        <div class="min-w-0">
+          <h3 class="text-lg sm:text-xl font-semibold text-white">Hotwire</h3>
+          <p class="text-white/60 text-xs sm:text-sm">Server-driven approach</p>
         </div>
       </div>
-      <div class="space-y-3 text-sm text-white/80">
+      <div class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-white/80">
         <div class="flex items-start">
-          <span class="w-2 h-2 bg-orange-400 rounded-full mr-3 mt-2"></span>
+          <span class="w-2 h-2 bg-orange-400 rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></span>
           <div><strong>Turbo:</strong> SPA-like navigation with server-rendered HTML</div>
         </div>
         <div class="flex items-start">
-          <span class="w-2 h-2 bg-orange-400 rounded-full mr-3 mt-2"></span>
+          <span class="w-2 h-2 bg-orange-400 rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></span>
           <div><strong>Stimulus:</strong> Modest JavaScript for enhanced interactions</div>
         </div>
         <div class="flex items-start">
-          <span class="w-2 h-2 bg-orange-400 rounded-full mr-3 mt-2"></span>
+          <span class="w-2 h-2 bg-orange-400 rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></span>
           <div><strong>Philosophy:</strong> HTML-first with progressive enhancement</div>
         </div>
       </div>
     </div>
 
     <!-- Inertia -->
-    <div class="glass-card p-8">
-      <div class="flex items-center mb-6">
-        <div class="w-12 h-12 rounded-xl bg-purple-500/20 flex items-center justify-center border border-purple-500/30 mr-4">
-          <span class="text-lg text-purple-300">◈</span>
+    <div class="glass-card p-4 sm:p-6 lg:p-8">
+      <div class="flex items-center mb-4 sm:mb-6">
+        <div class="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-purple-500/20 flex items-center justify-center border border-purple-500/30 mr-3 sm:mr-4 flex-shrink-0">
+          <span class="text-base sm:text-lg text-purple-300">◈</span>
         </div>
-        <div>
-          <h3 class="text-xl font-semibold text-white">Inertia.js</h3>
-          <p class="text-white/60 text-sm">Modern SPA experience</p>
+        <div class="min-w-0">
+          <h3 class="text-lg sm:text-xl font-semibold text-white">Inertia.js</h3>
+          <p class="text-white/60 text-xs sm:text-sm">Modern SPA experience</p>
         </div>
       </div>
-      <div class="space-y-3 text-sm text-white/80">
+      <div class="space-y-2 sm:space-y-3 text-xs sm:text-sm text-white/80">
         <div class="flex items-start">
-          <span class="w-2 h-2 bg-purple-400 rounded-full mr-3 mt-2"></span>
+          <span class="w-2 h-2 bg-purple-400 rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></span>
           <div><strong>React:</strong> Component-based UI with TypeScript</div>
         </div>
         <div class="flex items-start">
-          <span class="w-2 h-2 bg-purple-400 rounded-full mr-3 mt-2"></span>
+          <span class="w-2 h-2 bg-purple-400 rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></span>
           <div><strong>Vite:</strong> Fast build tool with hot module replacement</div>
         </div>
         <div class="flex items-start">
-          <span class="w-2 h-2 bg-purple-400 rounded-full mr-3 mt-2"></span>
+          <span class="w-2 h-2 bg-purple-400 rounded-full mr-2 sm:mr-3 mt-1.5 sm:mt-2 flex-shrink-0"></span>
           <div><strong>Philosophy:</strong> Client-side components with server routing</div>
         </div>
       </div>
@@ -73,30 +73,30 @@
 
   <!-- Current Experiments -->
   <div id="experiments">
-    <h2 class="text-2xl font-bold text-white mb-8 text-center">Current Experiments</h2>
+    <h2 class="text-xl sm:text-2xl font-bold text-white mb-6 sm:mb-8 text-center">Current Experiments</h2>
     
     <!-- Live Experiment -->
-    <div class="glass-card p-8 border-l-4 border-green-500/60 mb-6">
-      <div class="flex items-start justify-between">
+    <div class="glass-card p-4 sm:p-6 lg:p-8 border-l-4 border-green-500/60 mb-4 sm:mb-6">
+      <div class="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-4 lg:gap-8">
         <div class="flex-1">
-          <div class="flex items-center mb-4">
-            <span class="w-3 h-3 bg-green-500 rounded-full mr-3"></span>
-            <span class="text-sm text-green-400 font-semibold">LIVE EXPERIMENT</span>
+          <div class="flex items-center mb-3 sm:mb-4">
+            <span class="w-3 h-3 bg-green-500 rounded-full mr-2 sm:mr-3 flex-shrink-0"></span>
+            <span class="text-xs sm:text-sm text-green-400 font-semibold">LIVE EXPERIMENT</span>
           </div>
-          <h3 class="text-xl font-semibold text-white mb-3">Feedback System</h3>
-          <p class="text-white/80 text-sm mb-6 max-w-2xl">
+          <h3 class="text-lg sm:text-xl font-semibold text-white mb-2 sm:mb-3">Feedback System</h3>
+          <p class="text-white/80 text-xs sm:text-sm mb-4 sm:mb-6 max-w-2xl">
             A complete feedback collection system featuring real-time updates, form validation, error handling, 
             and live UI refreshes. Compare how each technology handles form submissions, data validation, 
             and dynamic content updates.
           </p>
-          <div class="flex space-x-4">
-            <%= link_to "Try Hotwire Version", hotwire_feedbacks_path, class: "glass-button text-sm px-5 py-2" %>
-            <%= link_to "Try Inertia Version", inertia_feedbacks_path, class: "glass-button text-sm px-5 py-2", data: { turbo: false } %>
+          <div class="flex flex-col sm:flex-row gap-3 sm:gap-4">
+            <%= link_to "Try Hotwire Version", hotwire_feedbacks_path, class: "glass-button text-xs sm:text-sm px-4 sm:px-5 py-2" %>
+            <%= link_to "Try Inertia Version", inertia_feedbacks_path, class: "glass-button text-xs sm:text-sm px-4 sm:px-5 py-2", data: { turbo: false } %>
           </div>
         </div>
-        <div class="ml-8 text-right">
-          <div class="text-white/60 text-xs">Features</div>
-          <div class="space-y-1 text-xs text-white/80">
+        <div class="lg:ml-8 lg:text-right border-t lg:border-t-0 lg:border-l border-white/10 pt-4 lg:pt-0 lg:pl-4 flex-shrink-0">
+          <div class="text-white/60 text-xs mb-2">Features</div>
+          <div class="grid grid-cols-2 lg:grid-cols-1 gap-1 text-xs text-white/80">
             <div>Real-time updates</div>
             <div>Form validation</div>
             <div>Error handling</div>
@@ -107,98 +107,98 @@
     </div>
 
     <!-- Planned Experiments -->
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
       <!-- Social Platform -->
-      <div class="glass-card p-6 border-l-4 border-yellow-500/60 opacity-80">
+      <div class="glass-card p-4 sm:p-6 border-l-4 border-yellow-500/60 opacity-80">
         <div class="flex items-center mb-3">
-          <span class="w-3 h-3 bg-yellow-500 rounded-full mr-3"></span>
+          <span class="w-3 h-3 bg-yellow-500 rounded-full mr-2 sm:mr-3 flex-shrink-0"></span>
           <span class="text-xs text-yellow-400 font-semibold">PLANNED</span>
         </div>
-        <h3 class="text-lg font-semibold text-white mb-3">Social Platform</h3>
-        <p class="text-white/70 text-sm mb-4">
+        <h3 class="text-base sm:text-lg font-semibold text-white mb-3">Social Platform</h3>
+        <p class="text-white/70 text-xs sm:text-sm mb-4">
           Twitter-like microblogging platform with real-time feeds, user interactions, 
           notifications, and live updates.
         </p>
-        <div class="space-y-2 text-xs text-white/60 mb-4">
+        <div class="space-y-1 sm:space-y-2 text-xs text-white/60 mb-4">
           <div>• Real-time timeline updates</div>
           <div>• User authentication & profiles</div>
           <div>• Like, retweet, reply functionality</div>
           <div>• Live notifications</div>
         </div>
-        <div class="flex space-x-3">
-          <span class="glass-link text-xs px-3 py-1 opacity-50">Hotwire</span>
-          <span class="glass-link text-xs px-3 py-1 opacity-50">Inertia</span>
+        <div class="flex flex-wrap gap-2 sm:gap-3">
+          <span class="glass-link text-xs px-2 sm:px-3 py-1 opacity-50">Hotwire</span>
+          <span class="glass-link text-xs px-2 sm:px-3 py-1 opacity-50">Inertia</span>
         </div>
       </div>
 
       <!-- Admin Dashboard -->
-      <div class="glass-card p-6 border-l-4 border-blue-500/60 opacity-80">
+      <div class="glass-card p-4 sm:p-6 border-l-4 border-blue-500/60 opacity-80">
         <div class="flex items-center mb-3">
-          <span class="w-3 h-3 bg-blue-500 rounded-full mr-3"></span>
+          <span class="w-3 h-3 bg-blue-500 rounded-full mr-2 sm:mr-3 flex-shrink-0"></span>
           <span class="text-xs text-blue-400 font-semibold">PLANNED</span>
         </div>
-        <h3 class="text-lg font-semibold text-white mb-3">Admin Dashboard</h3>
-        <p class="text-white/70 text-sm mb-4">
+        <h3 class="text-base sm:text-lg font-semibold text-white mb-3">Admin Dashboard</h3>
+        <p class="text-white/70 text-xs sm:text-sm mb-4">
           Complex data management interface with advanced filtering, search, 
           bulk operations, and detailed analytics.
         </p>
-        <div class="space-y-2 text-xs text-white/60 mb-4">
+        <div class="space-y-1 sm:space-y-2 text-xs text-white/60 mb-4">
           <div>• Advanced data tables</div>
           <div>• Real-time search & filtering</div>
           <div>• Bulk actions & operations</div>
           <div>• Interactive charts & analytics</div>
         </div>
-        <div class="flex space-x-3">
-          <span class="glass-link text-xs px-3 py-1 opacity-50">Hotwire</span>
-          <span class="glass-link text-xs px-3 py-1 opacity-50">Inertia</span>
+        <div class="flex flex-wrap gap-2 sm:gap-3">
+          <span class="glass-link text-xs px-2 sm:px-3 py-1 opacity-50">Hotwire</span>
+          <span class="glass-link text-xs px-2 sm:px-3 py-1 opacity-50">Inertia</span>
         </div>
       </div>
     </div>
   </div>
 
   <!-- Learning Philosophy -->
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-    <div class="glass-card p-6 text-center">
-      <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-white/10 flex items-center justify-center">
-        <span class="text-xl">◯</span>
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+    <div class="glass-card p-4 sm:p-6 text-center">
+      <div class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-white/10 flex items-center justify-center">
+        <span class="text-lg sm:text-xl">◯</span>
       </div>
-      <h3 class="text-base font-semibold text-white mb-3">No Silver Bullets</h3>
-      <p class="text-white/70 text-sm">
+      <h3 class="text-sm sm:text-base font-semibold text-white mb-2 sm:mb-3">No Silver Bullets</h3>
+      <p class="text-white/70 text-xs sm:text-sm">
         Every technology has strengths and weaknesses. Understanding trade-offs helps make informed decisions.
       </p>
     </div>
 
-    <div class="glass-card p-6 text-center">
-      <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-white/10 flex items-center justify-center">
-        <span class="text-xl">▣</span>
+    <div class="glass-card p-4 sm:p-6 text-center">
+      <div class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-white/10 flex items-center justify-center">
+        <span class="text-lg sm:text-xl">▣</span>
       </div>
-      <h3 class="text-base font-semibold text-white mb-3">Learn by Doing</h3>
-      <p class="text-white/70 text-sm">
+      <h3 class="text-sm sm:text-base font-semibold text-white mb-2 sm:mb-3">Learn by Doing</h3>
+      <p class="text-white/70 text-xs sm:text-sm">
         Building identical features with different approaches reveals nuances that theory alone cannot teach.
       </p>
     </div>
 
-    <div class="glass-card p-6 text-center">
-      <div class="w-16 h-16 mx-auto mb-4 rounded-xl bg-white/10 flex items-center justify-center">
-        <span class="text-xl">◈</span>
+    <div class="glass-card p-4 sm:p-6 text-center sm:col-span-2 lg:col-span-1">
+      <div class="w-12 h-12 sm:w-16 sm:h-16 mx-auto mb-3 sm:mb-4 rounded-xl bg-white/10 flex items-center justify-center">
+        <span class="text-lg sm:text-xl">◈</span>
       </div>
-      <h3 class="text-base font-semibold text-white mb-3">Cross-pollinate Ideas</h3>
-      <p class="text-white/70 text-sm">
+      <h3 class="text-sm sm:text-base font-semibold text-white mb-2 sm:mb-3">Cross-pollinate Ideas</h3>
+      <p class="text-white/70 text-xs sm:text-sm">
         Apply learnings from one approach to improve the other. Innovation comes from combining ideas.
       </p>
     </div>
   </div>
 
   <!-- Call to Action -->
-  <div class="text-center glass-card p-10">
-    <h3 class="text-xl font-semibold text-white mb-4">Ready to Explore?</h3>
-    <p class="text-white/80 text-sm mb-8 max-w-2xl mx-auto">
+  <div class="text-center glass-card p-6 sm:p-8 lg:p-10">
+    <h3 class="text-lg sm:text-xl font-semibold text-white mb-3 sm:mb-4">Ready to Explore?</h3>
+    <p class="text-white/80 text-xs sm:text-sm mb-6 sm:mb-8 max-w-2xl mx-auto">
       Start with our feedback system to see how the same functionality can be implemented 
       using completely different philosophical approaches.
     </p>
-    <div class="flex justify-center space-x-6">
-      <%= link_to "Try Hotwire Approach", hotwire_feedbacks_path, class: "glass-button text-sm px-6 py-3" %>
-      <%= link_to "Try Inertia Approach", inertia_feedbacks_path, class: "glass-button text-sm px-6 py-3", data: { turbo: false } %>
+    <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 lg:gap-6">
+      <%= link_to "Try Hotwire Approach", hotwire_feedbacks_path, class: "glass-button text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3" %>
+      <%= link_to "Try Inertia Approach", inertia_feedbacks_path, class: "glass-button text-xs sm:text-sm px-4 sm:px-6 py-2 sm:py-3", data: { turbo: false } %>
     </div>
   </div>
 </div>

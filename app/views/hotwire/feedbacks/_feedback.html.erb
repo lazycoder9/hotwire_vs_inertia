@@ -1,17 +1,17 @@
 <div class="glass-feedback-item">
-  <div class="flex justify-between items-start mb-3">
-    <div class="flex items-center space-x-2">
-      <div class="w-8 h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20">
+  <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start mb-3 gap-2 sm:gap-0">
+    <div class="flex items-center space-x-2 min-w-0 flex-1">
+      <div class="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 backdrop-blur-sm flex items-center justify-center border border-white/20 flex-shrink-0">
         <span class="text-white font-semibold text-xs">
           <%= feedback.name.first.upcase %>
         </span>
       </div>
-      <div>
-        <h3 class="text-sm font-semibold text-white"><%= feedback.name %></h3>
-        <p class="text-white/70 text-xs"><%= feedback.email %></p>
+      <div class="min-w-0 flex-1">
+        <h3 class="text-xs sm:text-sm font-semibold text-white truncate"><%= feedback.name %></h3>
+        <p class="text-white/70 text-xs truncate"><%= feedback.email %></p>
       </div>
     </div>
-    <div class="text-right">
+    <div class="text-left sm:text-right flex-shrink-0 self-start">
       <time
         class="text-white/60 text-xs whitespace-nowrap block"
         datetime="<%= feedback.created_at.iso8601 %>">
@@ -25,7 +25,7 @@
     </div>
   </div>
   
-  <div class="bg-white/5 rounded-lg p-3 border border-white/10">
-    <p class="text-white/90 text-sm leading-relaxed whitespace-pre-wrap"><%= feedback.message %></p>
+  <div class="bg-white/5 rounded-lg p-2 sm:p-3 border border-white/10">
+    <p class="text-white/90 text-xs sm:text-sm leading-relaxed whitespace-pre-wrap break-words"><%= feedback.message %></p>
   </div>
 </div>

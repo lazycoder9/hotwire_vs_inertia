@@ -51,7 +51,7 @@ body::before {
 
 /* Floating navigation for welcome page */
 .glass-floating-nav {
-  @apply rounded-2xl p-4 shadow-2xl shadow-black/50;
+  @apply rounded-2xl p-3 sm:p-4 shadow-2xl shadow-black/50;
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.12) 0%,
@@ -60,6 +60,13 @@ body::before {
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Mobile-specific adjustments */
+@media (max-width: 640px) {
+  .glass-floating-nav {
+    max-width: calc(100vw - 2rem);
+  }
 }
 
 .glass-nav-link {
@@ -119,7 +126,7 @@ body::before {
 
 /* Glass form */
 .glass-form {
-  @apply relative overflow-hidden rounded-2xl shadow-2xl shadow-black/20 p-8;
+  @apply relative overflow-hidden rounded-2xl shadow-2xl shadow-black/20 p-4 sm:p-6 lg:p-8;
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.1) 0%,
@@ -239,7 +246,7 @@ body::before {
 
 /* Glass feedback item */
 .glass-feedback-item {
-  @apply relative overflow-hidden rounded-2xl shadow-2xl shadow-black/20 p-6 transition-all duration-200;
+  @apply relative overflow-hidden rounded-2xl shadow-2xl shadow-black/20 p-3 sm:p-4 lg:p-6 transition-all duration-200;
   background: linear-gradient(
     135deg,
     rgba(255, 255, 255, 0.1) 0%,
@@ -283,4 +290,83 @@ body::before {
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+/* Mobile-specific responsive improvements */
+@media (max-width: 768px) {
+  /* Improve touch targets on mobile */
+  .glass-button {
+    @apply min-h-[44px];
+  }
+  
+  .glass-link {
+    @apply min-h-[40px] flex items-center;
+  }
+  
+  /* Better mobile form spacing */
+  .glass-form {
+    margin-right: 0 !important;
+  }
+  
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    .glass-card:hover,
+    .glass-form:hover,
+    .glass-feedback-item:hover,
+    .glass-button:hover,
+    .glass-link:hover {
+      transform: none;
+    }
+  }
+}
+
+/* Tablet specific adjustments */
+@media (min-width: 768px) and (max-width: 1280px) {
+  .glass-form {
+    margin-right: 0.75rem;
+  }
+}
+
+/* Improve scrollbar styling for webkit browsers */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Focus styles for better accessibility */
+.glass-input:focus,
+.glass-button:focus,
+.glass-link:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .glass-card,
+  .glass-form,
+  .glass-feedback-item {
+    border-width: 2px;
+    border-color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .glass-input,
+  .glass-button,
+  .glass-link {
+    border-width: 2px;
+    border-color: rgba(255, 255, 255, 0.6);
+  }
 }
