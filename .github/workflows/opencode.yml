@@ -26,8 +26,8 @@ jobs:
         uses: sst/opencode/github@latest
         env:
           # GITHUB_TOKEN: ${{ secrets.COPILOT_OPENCODE_TOKEN }}
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          # GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          model: github-copilot/claude-sonnet-4
+          model: copilot/claude-sonnet-4
 
