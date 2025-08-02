@@ -105,7 +105,7 @@ jobs:
         if: steps.detect.outputs.has-changes == 'true'
         uses: sst/opencode/github@latest
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.COPILOT_OPENCODE_TOKEN }}
         with:
           model: github-copilot/claude-sonnet-4
 
