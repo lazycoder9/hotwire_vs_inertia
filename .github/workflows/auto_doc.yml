@@ -1,0 +1,128 @@
+name: Auto-generate Documentation
+
+on:
+  issue_comment:
+    types: [created]
+
+jobs:
+  auto-docs:
+    if: |
+      github.event.issue.pull_request &&
+      (contains(github.event.comment.body, '/auto-docs') ||
+       contains(github.event.comment.body, '/generate-docs'))
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      issues: write
+      pull-requests: write
+      id-token: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref }}
+          fetch-depth: 0
+
+      - name: Detect changed files
+        id: detect
+        run: |
+          # Get the base branch for comparison
+          BASE_SHA=$(gh api /repos/${{ github.repository }}/pulls/${{ github.event.issue.number }} --jq '.base.sha')
+          HEAD_SHA=$(gh api /repos/${{ github.repository }}/pulls/${{ github.event.issue.number }} --jq '.head.sha')
+
+          echo "Comparing $BASE_SHA..$HEAD_SHA"
+
+          # Run our detection script
+          ./script/detect-changed-files.sh $BASE_SHA $HEAD_SHA > tmp/changed-files.json
+
+          # Check if we have files to process
+          FILE_COUNT=$(jq '.files | length' tmp/changed-files.json)
+          echo "Found $FILE_COUNT files requiring documentation"
+
+          if [[ "$FILE_COUNT" -gt 0 ]]; then
+            echo "has-changes=true" >> $GITHUB_OUTPUT
+            echo "file-count=$FILE_COUNT" >> $GITHUB_OUTPUT
+          else
+            echo "has-changes=false" >> $GITHUB_OUTPUT
+          fi
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+
+      - name: Comment if no changes
+        if: steps.detect.outputs.has-changes == 'false'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: '📝 **Auto-Docs Result**\n\nNo Ruby files requiring documentation were found in this PR.\n\nChecked patterns: `app/controllers/`, `app/models/`, `app/services/`, `app/mutators/`, `app/managers/`, `app/forms/`, `lib/`'
+            });
+
+      - name: Setup documentation environment
+        if: steps.detect.outputs.has-changes == 'true'
+        run: |
+          # Create docs output directory
+          mkdir -p tmp/docs-output
+
+          # Create opencode instruction file
+          cat > tmp/opencode-instructions.md << 'EOF'
+          # Documentation Generation Instructions
+
+          You are tasked with generating comprehensive documentation for the changed files in this Rails application.
+
+          ## Context
+          - This is a Rails backend for Seros (smart lock management system)
+          - Follow the project's DOCUMENTATION_GUIDELINES.md if it exists
+          - Generate docs that mirror the source file structure
+
+          ## Task
+          1. Read the list of changed files from tmp/changed-files.json
+          2. For each file in the list:
+             - Use the Read tool to read the source file
+             - Generate comprehensive documentation following Rails documentation best practices
+             - Use the Write tool to save documentation to tmp/docs/{source_file_path}.md
+             - For example: app/controllers/users_controller.rb → tmp/docs/app/controllers/users_controller.md
+          3. Create a summary of all documentation generated in tmp/docs-summary.md
+
+          ## Documentation Requirements
+          - Include purpose and responsibilities of the class/module
+          - Document public methods with parameters and return values
+          - Include usage examples where appropriate
+          - For controllers: document endpoints, parameters, responses
+          - For models: document relationships, validations, key methods
+          - For services/mutators: document business logic and usage patterns
+          - Use proper markdown formatting with code blocks
+
+          ## Output Structure
+          Save all docs to tmp/docs/ maintaining the same directory structure as source files.
+
+          Please start by reading the changed files list and generating documentation.
+          EOF
+
+      - name: Generate documentation with OpenCode
+        if: steps.detect.outputs.has-changes == 'true'
+        uses: sst/opencode/github@latest
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        with:
+          model: github-copilot/claude-sonnet-4
+
+      - name: Collect generated documentation
+        if: steps.detect.outputs.has-changes == 'true'
+        id: collect
+        run: |
+          # Check if documentation was generated
+          if [[ -d tmp/docs && -f tmp/docs-summary.md ]]; then
+            # Package docs for cross-repo PR
+            tar -czf tmp/generated-docs.tar.gz tmp/docs/
+            echo "docs-generated=true" >> $GITHUB_OUTPUT
+
+            # Show summary
+            echo "Documentation generated:"
+            find tmp/docs -name "*.md" | wc -l
+          else
+            echo "docs-generated=false" >> $GITHUB_OUTPUT
+            echo "No documentation was generated"
+          fi
