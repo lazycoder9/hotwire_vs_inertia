@@ -17,10 +17,10 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Use GITHUB_TOKEN with gh CLI
-        run: gh auth token
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      # - name: Use GITHUB_TOKEN with gh CLI
+      #   run: gh auth token
+      #   env:
+      #     GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Run opencode
         uses: sst/opencode/github@latest
