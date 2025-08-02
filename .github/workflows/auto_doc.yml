@@ -46,7 +46,7 @@ jobs:
             echo "has-changes=false" >> $GITHUB_OUTPUT
           fi
         env:
-          GITHUB_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ secrets.COPILOT_OPENCODE_TOKEN }}
 
       - name: Comment if no changes
         if: steps.detect.outputs.has-changes == 'false'
