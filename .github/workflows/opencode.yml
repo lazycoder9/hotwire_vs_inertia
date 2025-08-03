@@ -25,5 +25,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.COPILOT_GHU_TOKEN }}
           # GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          model: copilot/claude-sonnet-4
+          model: github-copilot/claude-sonnet-4
 
