@@ -50,7 +50,7 @@ jobs:
 
       - name: Comment if no changes
         if: steps.detect.outputs.has-changes == 'false'
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             github.rest.issues.createComment({
